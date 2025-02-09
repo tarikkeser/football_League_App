@@ -22,10 +22,9 @@ require_once(__DIR__ . "/lib/Route.php");
  *  Defines the routes that our application will need
  */
 require_once(__DIR__ . "/routes/homepage.php");
+require_once(__DIR__ . "/routes/login.php");
 require_once(__DIR__ . "/routes/webRoutes/leaguestandings.php"); 
-
-
-
+require_once(__DIR__ . "/routes/webRoutes/fixtures.php");
 
 // Start the router, enabling handling requests
 Route::run();

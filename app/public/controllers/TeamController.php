@@ -14,11 +14,15 @@ class TeamController {
 
     // Returns JSON for API
     public function getAllTeamsAPI() {
-        return $this->teamModel->getAllTeams(); 
+        $teams = $this->teamModel->getAllTeams();
+        echo json_encode($teams);
     }
 
     // HTML page
     public function showStandingsPage() {
         include(__DIR__ . '/../views/pages/leaguestandings.php'); // HTML sayfası
     }
+
+
+    // Some logic methods here for future implementations.
 }

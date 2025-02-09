@@ -16,32 +16,36 @@ body {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/*Home Page Background Images*/
+.custom-card.standings-bg{
+   
+        background: url('../images/homepage/homepage-standings.jpg') ;
+        background-size: cover;
+    }
+.custom-card.teams-bg{
+
+    background: url('../images/homepage/teams.jpg') ;
+    background-size: cover;
+}
+.custom-card.news-bg{
+    background: url('../images/homepage/news.jpg') ;
+    background-size: cover;
+}
+.custom-card.fixtures-bg{
+    background: url('../images/homepage/fixtures.jpg') ;
+    background-size: cover;
+}
+
+
+
 /* Hover efect */
 .custom-card:hover {
     transform: scale(1.05); /* Kutuyu biraz büyütme */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Home Page Card background images */
-.custom-card:nth-child(1) {
-    background-image: url('../assets/images/league.webp');
-}
-
-.custom-card:nth-child(2) {
-    background-image: url('path-to-your-image2.jpg');
-}
-
-.custom-card:nth-child(3) {
-    background-image: url('path-to-your-image3.jpg');
-}
-
-.custom-card:nth-child(4) {
-    background-image: url('path-to-your-image4.jpg');
-}
-
-
 .card-body {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-align: center;
     position: absolute;
     bottom: 10px;
@@ -51,7 +55,7 @@ body {
 
 
 .card-title {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     margin: 0;
 }

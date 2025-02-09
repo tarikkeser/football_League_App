@@ -12,7 +12,7 @@
 
     <div class="container my-5">
         <header class="text-center mb-4">
-            <h1 class="display-4">League Standings</h1>
+            <h2 class="display-4">League Standings</h2>
         </header>
 
         <div class="table-responsive">

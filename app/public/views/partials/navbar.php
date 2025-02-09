@@ -30,17 +30,26 @@
                         <a class="nav-link" href="/fixtures">Fixtures</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/statistics">Statistics</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/news">News</a>
+                        <a class="nav-link" href="/teams">Teams</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/gallery">Gallery</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
+
+                    <!-- Kullanıcı giriş yapmış mı kontrol et -->
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <li class="nav-item">
+                            <span class="nav-link text-light">Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                    <?php endif; ?>
+
                 </ul>
             </div>
         </div>
