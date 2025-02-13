@@ -16,15 +16,16 @@ session_start();
  *  allows handling request for different URL routes, i.e. /users, /products, etc.
  */
 require_once(__DIR__ . "/lib/Route.php");
+/*
 
 /**
  * Require routes
  *  Defines the routes that our application will need
  */
-require_once(__DIR__ . "/routes/homepage.php");
-require_once(__DIR__ . "/routes/login.php");
-require_once(__DIR__ . "/routes/webRoutes/leaguestandings.php"); 
-require_once(__DIR__ . "/routes/webRoutes/fixtures.php");
+require_once(__DIR__ . "/routes/web.php");
+require_once(__DIR__ . "/routes/api.php");
+
+
 
 // Start the router, enabling handling requests
 Route::run();

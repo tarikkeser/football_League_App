@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://localhost/routes/apiRoutes/leaguestandings.php")
- 
+    // load standings.
+    fetch("http://localhost/api/standings")
         .then(response => response.json())
         .then(data => {
             const tbody = document.getElementById("standings-body");
+            tbody.innerHTML = "";
 
             data.forEach(team => {
                 const row = document.createElement("tr");
@@ -15,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     <td>${team.goals_scored}</td>
                     <td>${team.goals_conceded}</td>
                 `;
-
                 tbody.appendChild(row);
             });
         })
