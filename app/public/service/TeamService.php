@@ -18,4 +18,11 @@ class TeamService {
     public function updateTeamStats($id,$points, $goals_scored, $goals_conceded) {
         return $this->teamModel->updateTeamStats($id,$points, $goals_scored, $goals_conceded);
     }
+    public function addTeam($team){
+        
+        return $this->teamModel->addTeam($team);
+    }
+    public function deleteTeam($teamId){
+        return $this->teamModel->deleteTeam($teamId);
+    }
 }

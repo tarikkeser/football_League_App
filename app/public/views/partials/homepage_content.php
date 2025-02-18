@@ -14,10 +14,10 @@
         </div>
 
         <div class="col-md-6">
-            <a href="/teams" class="card-link">
-                <div class="card custom-card teams-bg">
+            <a href="/players" class="card-link">
+                <div class="card custom-card players-bg">
                     <div class="card-body">
-                        <h5 class="card-title">Teams</h5>
+                        <h5 class="card-title">Players</h5>
                     </div>
                 </div>
             </a>
@@ -34,10 +34,10 @@
         </div>
 
         <div class="col-md-6">
-            <a href="/fixtures" class="card-link">
-                <div class="card custom-card fixtures-bg">
+            <a href="/gallery" class="card-link">
+                <div class="card custom-card gallery-bg">
                     <div class="card-body">
-                        <h5 class="card-title">Fixtures</h5>
+                        <h5 class="card-title">Gallery</h5>
                     </div>
                 </div>
             </a>

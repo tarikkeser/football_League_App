@@ -20,4 +20,6 @@ $isAdmin = isset($_SESSION["role"]) && $_SESSION["role"] === "admin";
 </head>
 <body>
 
-<?php require(__DIR__ . "/navbar.php"); ?> <!-- Navbar -->
+    <?php require(__DIR__ . "/navbar.php"); ?> 
+    
+
