@@ -1,43 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latest News</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-
-</head>
-<body>
-
-<div class="container-fluid mt-5 px-5">
-    <h1 class="text-start mb-4">Latest News</h1>
-    <?php foreach ($news as $article): ?>
-        <div class="row mb-4">
-            <div class="col-lg-8">
-                <div class="card shadow-sm news-card">
-                    <div class="row g-0 w-100">
-                        <!-- Resim alanı -->
-                        <div class="col-auto" style="max-width: 300px;">
-                            <?php 
-                                $image = !empty($article['image']) ? htmlspecialchars($article['image']) : "https://via.placeholder.com/400x250?text=No+Image";
-                            ?>
-                            <img src="<?php echo $image; ?>" class="news-image" alt="News Image">
-                        </div>
-                        <!-- Metin alanı -->
-                        <div class="col news-content">
-                            <h5 class="card-title"><?php echo htmlspecialchars($article['title']); ?></h5>
-                            <p class="card-text"><?php echo nl2br(htmlspecialchars($article['content'])); ?></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
+<?php require(__DIR__ . "/../partials/header.php"); ?>
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Latest News</h1>
+    
+    <?php if ($isLoggedIn): ?>
+    <div id="newsActions" class="mb-3 text-center">
+        <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#addNewsModal">Add News</button>
+        <button class="btn btn-danger" id="deleteNewsBtn">Delete News</button>
+    </div>
+    <?php endif; ?>
+    
+    <div id="newsList" class="row">
+        <!-- News will be dynamically loaded here -->
+    </div>
 </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<!-- News Adding Modal -->
+<div class="modal fade" id="addNewsModal" tabindex="-1" aria-labelledby="addNewsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addNewsModalLabel">Add News</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addNewsForm">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Content</label>
+                        <textarea class="form-control" id="content" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Add News</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Custom JS & CSS -->
+<link rel="stylesheet" href="assets/css/news.css">
+<script src="assets/js/news.js"></script>
 
 </body>
 </html>

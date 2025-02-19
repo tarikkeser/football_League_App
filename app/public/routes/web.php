@@ -6,6 +6,8 @@ require_once(__DIR__ . "../../controllers/web/WebHomePageController.php");
 require_once(__DIR__ . "../../controllers/web/WebTeamController.php");
 require_once(__DIR__ . "../../controllers/web/LoginController.php");
 require_once(__DIR__ . "../../controllers/web/WebPlayerController.php");
+require_once(__DIR__ . "../../controllers/web/WebNewsController.php");
+require_once(__DIR__ . "../../controllers/web/WebGalleryController.php");
 
 // Show Login Page
 Route::add('/login', function () {
@@ -36,12 +38,23 @@ Route::add('/leaguestandings', function () {
     $controller->showStandingsPage();
     'get';
 });
-//players page
+//Show players page
 Route::add('/players', function () {
-    $controller= new PlayerController();
+    $controller = new PlayerController();
     $controller->showPlayersPage();
-    'get';  
+    'get';
 });
-// news page
+
+// Show news page
+Route::add('/news', function () {
+    $controller = new NewsController();
+    $controller->showNewsPage();
+}, 'get');
+
 // gallery page
+Route::add('/gallery', function () {
+    $controller=new GalleryController();
+    $controller->showGalleryPage();
+}, 'get');
+
 
