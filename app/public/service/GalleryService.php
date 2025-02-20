@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . "/../models/GalleryModel.php");
 
-
+// degisiklik yapildi.
 class GalleryService
 {
     private $galleryModel;
@@ -13,9 +13,32 @@ class GalleryService
     {
         return $this->galleryModel->getAllImages();
     }
-    public function addImage($image_url)
+    public function addImage($file)
     {
-        return $this->galleryModel->addImage($image_url);
+        $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/assets/images/uploads/';
+        
+        if (!file_exists($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
+
+        if (!isset($file['image']) || $file['image']['error'] !== UPLOAD_ERR_OK) {
+            return ['success' => false, 'error' => 'Upload failed'];
+        }
+
+        $fileExtension = strtolower(pathinfo($file['image']['name'], PATHINFO_EXTENSION));
+        $filename = 'gallery_' . uniqid() . '.' . $fileExtension;
+        $filepath = $uploadDir . $filename;
+        
+        if (move_uploaded_file($file['image']['tmp_name'], $filepath)) {
+            $dbPath = '/assets/images/uploads/' . $filename;
+            $result = $this->galleryModel->addImage($dbPath);
+            
+            return $result ? 
+                ['success' => true, 'image_url' => $dbPath] : 
+                ['success' => false, 'error' => 'Database save failed'];
+        }
+        
+        return ['success' => false, 'error' => 'File move failed'];
     }
     public function deleteImage($id)
     {

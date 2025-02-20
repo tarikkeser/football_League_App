@@ -15,8 +15,7 @@ class ApiGalleryController
     }
     public function addImage()
     {
-        $data = json_decode(file_get_contents('php://input'), true);
-        $result = $this->galleryService->addImage($data);
+        $result = $this->galleryService->addImage($_FILES);
         if ($result) {
             echo json_encode(['success' => true]);
         } else {
@@ -33,6 +32,5 @@ class ApiGalleryController
             http_response_code(500);
             echo json_encode(['error' => 'Delete failed']);
         }
-         
     }
 }

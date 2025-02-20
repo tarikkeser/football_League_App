@@ -209,4 +209,22 @@ td img {
     }
 }
 
+.gallery-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-card.selected {
+    border: 3px solid #007bff;
+    transform: scale(0.98);
+}
+
+.gallery-card img {
+    transition: opacity 0.3s ease;
+}
+
+.gallery-card.selected img {
+    opacity: 0.8;
+}
+
 

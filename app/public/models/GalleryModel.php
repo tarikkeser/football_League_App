@@ -21,5 +21,9 @@ class GalleryModel extends BaseModel{
         $sql = "DELETE FROM gallery WHERE id = :id";
         $stmt = self::$pdo->prepare($sql);
         return $stmt->execute(['id' => $id]);
+
+        if (file_exists(__DIR__ . "/../uploads/" . $image['image_url'])) {
+            unlink(__DIR__ . "/../uploads/" . $image['image_url']);
+        }
     }
 }

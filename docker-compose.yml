@@ -1,5 +1,5 @@
 version: '3'
-
+# degisiklik yapildi.
 services:
     nginx:
         image: nginx:latest
@@ -14,6 +14,9 @@ services:
             dockerfile: PHP.Dockerfile
         volumes:
             - ./app:/app
+        environment:
+            - upload_max_filesize=10M
+            - post_max_size=10M
     mysql:
         image: mariadb:latest
         environment:

@@ -1,8 +1,18 @@
-## hoca icin yazman gerekenler.
+## Login Credentials
+
+# ADMIN  
+- username: admin
+- password: admin123
+
+# REGULAR 
+- username: regular
+- password: regular123
+
+# VIEW
+- No username or password required.
 
 
-
-## About
+## About the Project Structure
 What's included:
 
 - Docker setup including:
