@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . "/../models/GalleryModel.php");
 
-// degisiklik yapildi.
+
 class GalleryService
 {
     private $galleryModel;

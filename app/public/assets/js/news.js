@@ -1,4 +1,4 @@
-// Global variable to track selected news
+
 let selectedNewsId = null;
 document.addEventListener('DOMContentLoaded', loadNews);
 // Load all news
@@ -69,7 +69,7 @@ async function addNews(event) {
         if (response.ok) {
             alert('News added successfully!');
             document.getElementById('addNewsForm').reset();
-            loadNews(); // Reload news list after adding
+            loadNews(); 
             $('#addNewsModal').modal('hide'); // Close modal
         } else {
             const error = await response.json();

@@ -26,18 +26,17 @@ async function loadImages() {
                 galleryList.appendChild(col);
             });
 
-            // Resim seçme olaylarını ekle
+            //Select image
             document.querySelectorAll('.gallery-card').forEach(card => {
                 card.addEventListener('click', function() {
                     const imageId = this.dataset.imageId;
                     
-                    // Önceden seçili olan kartın seçimini kaldır
+       
                     const previousSelected = document.querySelector('.card.selected');
                     if (previousSelected) {
                         previousSelected.classList.remove('selected');
                     }
 
-                    // Eğer aynı karta tıklanmadıysa yeni seçim yap
                     if (selectedImageId !== imageId) {
                         this.classList.add('selected');
                         selectedImageId = imageId;
@@ -56,7 +55,7 @@ async function loadImages() {
     }
 }
 
-// Delete seçili resmi
+// Delete 
 async function deleteSelectedImage() {
     if (!selectedImageId) {
         alert('Please select an image to delete');
@@ -95,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Resim ekleme fonksiyonu
+// add image
 const addImageForm = document.getElementById('addImageForm');
 if (addImageForm) {
     addImageForm.addEventListener('submit', async (e) => {
