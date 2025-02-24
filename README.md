@@ -11,6 +11,15 @@
 # VIEW
 - No username or password required.
 
+## ROLES of ADMIN
+- Can make changes on leagues standings,players,news and gallery.
+## ROLES of REGULAR 
+- Can make changes on news and gallery.
+## FEATURES
+- Teams,players,news and images are selectable by clicking on them. Clicking on teams(league standings) or players automatically fills the update or delete form.
+
+
+
 
 ## About the Project Structure
 What's included:
