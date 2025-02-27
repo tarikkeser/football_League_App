@@ -1,5 +1,8 @@
-## Login Credentials
+## phpMyAdmin login credentials to run the SQL query.
+username: developer
+password: tarikphp1
 
+## Login Credentials
 # ADMIN  
 - username: admin
 - password: admin123
