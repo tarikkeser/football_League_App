@@ -1,4 +1,4 @@
-## phpMyAdmin login credentials.
+## phpMyAdmin.
 username: developer
 password: tarikphp1
 
