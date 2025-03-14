@@ -6,6 +6,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav d-flex justify-content-evenly w-100">
                 <li class="nav-item"><a class="nav-link" href="/">Home Page</a></li>
+                <li class="nav-item"><a class="nav-link" href="/fixture">Fixtures</a></li>
                 <li class="nav-item"><a class="nav-link" href="/leaguestandings">League Standings</a></li>
                 <li class="nav-item"><a class="nav-link" href="/players">Players</a></li>
                 <li class="nav-item"><a class="nav-link" href="/news">News</a></li>

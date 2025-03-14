@@ -8,6 +8,8 @@ require_once(__DIR__ . "../../controllers/web/LoginController.php");
 require_once(__DIR__ . "../../controllers/web/WebPlayerController.php");
 require_once(__DIR__ . "../../controllers/web/WebNewsController.php");
 require_once(__DIR__ . "../../controllers/web/WebGalleryController.php");
+require_once(__DIR__ . "../../controllers/web/WebFixturesController.php");
+
 
 // Show Login Page
 Route::add('/login', function () {
@@ -57,4 +59,9 @@ Route::add('/gallery', function () {
     $controller->showGalleryPage();
 }, 'get');
 
+//show fixture page
+Route::add('/fixture', function () {
+    $controller=new FixtureController();
+    $controller->showFixturesPage();
+}, 'get');
 

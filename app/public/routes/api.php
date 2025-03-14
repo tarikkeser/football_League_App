@@ -7,6 +7,10 @@ require_once(__DIR__ . "/../controllers/api/ApiNewsController.php");
 
 require_once(__DIR__ . "/../controllers/api/ApiGalleryController.php");
 
+require_once(__DIR__ . "/../controllers/api/ApiFixtureController.php");
+
+
+
 
 
 // league standings 
@@ -20,12 +24,6 @@ Route::add('/api/team/([0-9]+)', function($teamId) {
     $controller = new ApiTeamController();
     $controller->getTeamByTeamId($teamId);
 }, 'get');
-
-// update team stats.
-Route::add('/api/team/([0-9]+)', function($teamId) {
-    $controller = new ApiTeamController();
-    $controller->updateTeamStats($teamId);
-}, 'put');
 
 // add new team
 Route::add('/api/team', function() {
@@ -104,6 +102,36 @@ Route::add('/api/gallery/([0-9]+)', function($imageId) {
     $controller = new ApiGalleryController();
     $controller->deleteImage($imageId);
 }, 'delete');
+
+// get all matches
+Route::add('/api/matches', function() {
+    $controller = new ApiFixtureController();
+    $controller->getAllMatches();
+}, 'get');
+// get match by id
+Route::add('/api/match/([0-9]+)', function($id) {
+    $controller = new ApiFixtureController();
+    $controller->getMatchById($id);
+}, 'get');
+
+// update matches 
+Route::add('/api/match/([0-9]+)/score', function($id) {
+    // JSON verilerini okuyoruz
+    $requestData = json_decode(file_get_contents('php://input'), true);
+    
+    $homeScore = $requestData['home_score'];
+    $awayScore = $requestData['away_score'];
+    $played = $requestData['played'];
+    
+    $controller = new ApiFixtureController();
+    $controller->updateMatchScore($id, $homeScore, $awayScore, $played);
+}, 'post');
+
+Route::add('/api/match/([0-9]+)/reset', function($id) {
+    $controller = new ApiFixtureController();
+    $controller->resetMatch($id);
+}, 'post');
+
 
 
 
