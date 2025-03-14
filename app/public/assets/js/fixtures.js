@@ -1,4 +1,4 @@
-// Asenkron fonksiyon: API'den maç verilerini çek ve sayfada göster.
+
 async function fetchMatches() {
     try {
         const response = await fetch('/api/matches');
@@ -25,12 +25,11 @@ async function fetchMatches() {
                         </div>
                         <div>
                             ${
-                                // Admin ise skor giriş formunu gösterecek butonlar veya direkt geri alma butonu
+                                // if admin ?
                                 isAdmin 
                                 ? (match.played == 0 
                                     ? `<button class="btn btn-success btn-sm" onclick="showScoreModal(${match.id}, 'play')">Play Match</button>` 
                                     : `<button class="btn btn-warning btn-sm" onclick="undoMatch(${match.id})">Undo Play</button>`)
-                                // Admin değilse, oynanmış maç için devre dışı buton
                                 : (match.played == 0 
                                     ? '' 
                                     : `<button class="btn btn-secondary btn-sm" disabled>Match Played</button>`)
@@ -47,20 +46,16 @@ async function fetchMatches() {
     }
 }
 
-// Modalı açıp, maç id'sini ve işlem türünü modal inputlarına atayan fonksiyon.
 function showScoreModal(matchId, actionType = 'play') {
     document.getElementById('modalMatchId').value = matchId;
     document.getElementById('modalAction').value = actionType;
     
-    // Başlığı güncelle
     document.getElementById('scoreModalLabel').textContent = 'Enter Match Score';
     
-    // Modalı açmak için Bootstrap 5 Modal API'sini kullanıyoruz.
     const scoreModal = new bootstrap.Modal(document.getElementById('scoreModal'));
     scoreModal.show();
 }
 
-// Maçı direkt geri alma (undo) fonksiyonu - modal açmadan direkt işlem yapar
 async function undoMatch(matchId) {
     if (confirm('Are you sure you want to undo this match? The score will be reset to 0-0 and team stats will be reverted.')) {
         try {
@@ -75,7 +70,7 @@ async function undoMatch(matchId) {
             }
             const data = await response.json();
             console.log('Match reset successfully:', data);
-            // Sayfayı güncelle
+            
             fetchMatches();
         } catch (error) {
             console.error('Error resetting match:', error);
@@ -84,7 +79,6 @@ async function undoMatch(matchId) {
     }
 }
 
-// Modal form submit edildiğinde, girilen skorları API'ye gönder.
 document.getElementById('scoreForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const matchId = document.getElementById('modalMatchId').value;
@@ -92,7 +86,7 @@ document.getElementById('scoreForm').addEventListener('submit', async function(e
     const awayScore = document.getElementById('awayScore').value;
     const actionType = document.getElementById('modalAction').value;
     
-    // İşlem türüne göre played değerini belirle
+ 
     const played = (actionType === 'play') ? 1 : 0;
     
     const payload = {
@@ -114,11 +108,11 @@ document.getElementById('scoreForm').addEventListener('submit', async function(e
         }
         const data = await response.json();
         console.log('Match score updated:', data);
-        // Kapatmak için modalı manuel olarak kapatıyoruz.
+
         const scoreModalEl = document.getElementById('scoreModal');
         const modalInstance = bootstrap.Modal.getInstance(scoreModalEl);
         modalInstance.hide();
-        // Sayfayı güncelle
+  
         fetchMatches();
     } catch (error) {
         console.error('Error updating match score:', error);
@@ -126,7 +120,7 @@ document.getElementById('scoreForm').addEventListener('submit', async function(e
     }
 });
 
-// Sayfa yüklendiğinde maçları getir
+
 document.addEventListener('DOMContentLoaded', function() {
     fetchMatches();
 });

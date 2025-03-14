@@ -31,7 +31,6 @@ class ApiFixtureController{
         }
     }
     public function resetMatch($id) {
-        // MatchService sınıfına resetMatch metodunu eklemeniz gerekiyor
         $result = $this->fixtureService->resetMatch($id);
         
         header('Content-Type: application/json');

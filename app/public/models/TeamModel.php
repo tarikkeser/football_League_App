@@ -52,12 +52,11 @@ class TeamModel extends BaseModel
     // add new team to the database.
     public function addTeam($team)
     {
-        
-        $sql = "INSERT INTO teams (name, points, goals_scored, goals_conceded) VALUES (:name,:points,:goals_scored,:goals_conceded)";
+        $sql = "INSERT INTO teams (name) VALUES (:name)";
         $statement = self::$pdo->prepare($sql);
-        return $statement->execute(['name' => $team['name'], 'points' => $team['points'], 'goals_scored' => $team['goals_scored'], 'goals_conceded' => $team['goals_conceded']]);  
-        
+        return $statement->execute(['name' => $team['name']]);
     }
+    
     // delete team from the database.
     public function deleteTeam($teamId)
     {

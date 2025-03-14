@@ -41,7 +41,7 @@ class MatchModel extends BaseModel {
     
     public function updateMatchScore($id, $home_score, $away_score, $played)
     {
-        // Maç bilgilerini al
+        
         $sql = "SELECT home_team_id, away_team_id, played, home_team_score, away_team_score FROM matches WHERE id = :id";
         $stmt = self::$pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
@@ -64,13 +64,13 @@ class MatchModel extends BaseModel {
             ]);
             
             if ($result) {
-                // Durum 0'dan 1'e değişiyorsa (maç oynanıyor)
+                
                 if ($previous_played == 0 && $played == 1) {
                     $this->updateTeamPoints($home_team_id, $away_team_id, $home_score, $away_score);
                 }
-                // Durum 1'den 0'a değişiyorsa (maç geri alınıyor)
+              
                 else if ($previous_played == 1 && $played == 0) {
-                    // Önceki puanları ve golleri geri al
+        
                     $this->revertTeamPoints($home_team_id, $away_team_id, $previous_home_score, $previous_away_score);
                 }
                 return true;
@@ -80,10 +80,10 @@ class MatchModel extends BaseModel {
         return false;
     }
     
-    // Yeni eklenen fonksiyon - Maçı sıfırlama (0-0 yapma ve takım istatistiklerini geri alma)
+    
     public function resetMatch($id)
     {
-        // Maç bilgilerini al
+       
         $sql = "SELECT home_team_id, away_team_id, played, home_team_score, away_team_score FROM matches WHERE id = :id";
         $stmt = self::$pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
@@ -95,13 +95,12 @@ class MatchModel extends BaseModel {
             $previous_home_score = $match['home_team_score'];
             $previous_away_score = $match['away_team_score'];
             
-            // Maçı 0-0 olarak güncelle ve played=0 yap
+           
             $sql = "UPDATE matches SET home_team_score = 0, away_team_score = 0, played = 0 WHERE id = :id";
             $stmt = self::$pdo->prepare($sql);
             $result = $stmt->execute(['id' => $id]);
             
             if ($result) {
-                // Önceki puanları ve golleri geri al
                 $this->revertTeamPoints($home_team_id, $away_team_id, $previous_home_score, $previous_away_score);
                 return true;
             }
@@ -128,7 +127,7 @@ class MatchModel extends BaseModel {
         $this->teamModel->updateTeamStats($away_team_id, $away_points, $away_score, $home_score);
     }
     
-    // Takım puanlarını geri alma metodu
+   
     private function revertTeamPoints($home_team_id, $away_team_id, $home_score, $away_score)
     {
         $home_points = 0;
@@ -143,7 +142,7 @@ class MatchModel extends BaseModel {
             $away_points = 1;  // draw
         }
         
-        // Önceki puanları ve golleri çıkar
+       
         $this->teamModel->updateTeamStats($home_team_id, -$home_points, -$home_score, -$away_score);
         $this->teamModel->updateTeamStats($away_team_id, -$away_points, -$away_score, -$home_score);
     }

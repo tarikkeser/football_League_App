@@ -10,9 +10,6 @@ require_once(__DIR__ . "/../controllers/api/ApiGalleryController.php");
 require_once(__DIR__ . "/../controllers/api/ApiFixtureController.php");
 
 
-
-
-
 // league standings 
 Route::add('/api/standings', function() {
     $controller = new ApiTeamController(); 
