@@ -16,7 +16,7 @@ class BaseModel
             $host = getenv("DB_HOST") ?: "mysql";
             $db = getenv("DB_NAME") ?: "developmentdb";
             $user = getenv("DB_USER") ?: "developer";
-            $pass = getenv("DB_PASSWORD") ?: "tarikphp1";
+            $pass = getenv("DB_PASSWORD") ?: "secret123";
             $charset = getenv("DB_CHARSET") ?: "utf8mb4";
 
             $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
