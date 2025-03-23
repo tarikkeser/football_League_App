@@ -1,6 +1,3 @@
-## phpMyAdmin.
-username: developer
-password: tarikphp1
 
 ## Login Credentials
 # ADMIN  
