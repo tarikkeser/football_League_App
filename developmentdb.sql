@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Mar 14, 2025 at 02:55 PM
--- Server version: 11.6.2-MariaDB-ubu2404
--- PHP Version: 8.2.27
+-- Generation Time: Mar 26, 2025 at 03:47 PM
+-- Server version: 11.7.2-MariaDB-ubu2404
+-- PHP Version: 8.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -291,7 +291,64 @@ INSERT INTO `players` (`id`, `name`, `team_id`, `position`, `nationality`, `foot
 (14, 'Paul Onuachu', 4, 'forward', NULL, 'right'),
 (15, 'Enis Bardhi', 4, 'midfielder', NULL, 'right'),
 (16, 'Stefano Denswil', 4, 'defender', NULL, 'right'),
-(20, 'Mario Balotelli', 5, 'forward', 'Italy', 'right');
+(20, 'Mario Balotelli', 5, 'forward', 'Italy', 'right'),
+(21, 'Osimhen', 1, 'forward', 'Nigeria', 'right'),
+(22, 'İrfan Can Kahveci', 6, 'midfielder', 'Turkish', 'right'),
+(23, 'Enzo Roco', 6, 'defender', 'Chile', 'right'),
+(24, 'Mahmut Tekdemir', 6, 'midfielder', 'Turkish', 'right'),
+(25, 'Robinho', 6, 'forward', 'Brazil', 'right'),
+(26, 'Faysal Oumari', 7, 'defender', 'Algerian', 'right'),
+(27, 'Ezequiel Scarione', 7, 'midfielder', 'Argentina', 'right'),
+(28, 'Çınar Sefa Yılmaz', 7, 'forward', 'Turkish', 'right'),
+(29, 'Yusuf Erdoğan', 7, 'forward', 'Turkish', 'right'),
+(30, 'Fayçal Fajr', 8, 'midfielder', 'Moroccan', 'right'),
+(31, 'Süleyman Koç', 8, 'midfielder', 'Turkish', 'right'),
+(32, 'João Novais', 8, 'midfielder', 'Portugal', 'right'),
+(33, 'Cenk Ahmet Alkılıç', 8, 'defender', 'Turkish', 'right'),
+(34, 'Milan Jovanović', 9, 'forward', 'Serbian', 'right'),
+(35, 'Alper Potuk', 9, 'midfielder', 'Turkish', 'right'),
+(36, 'Savaş Acar', 9, 'midfielder', 'Turkish', 'right'),
+(37, 'Koray Altınay', 9, 'defender', 'Turkish', 'right'),
+(38, 'Mustafa Yatabaré', 10, 'forward', 'Mali', 'right'),
+(39, 'Aaron Appindangoyé', 10, 'defender', 'Ivory Coast', 'right'),
+(40, 'Caner Erkin', 10, 'defender', 'Turkish', 'left'),
+(41, 'Mert Hakan Yandaş', 10, 'midfielder', 'Turkish', 'right'),
+(42, 'Burak Altıparmak', 11, 'midfielder', 'Turkish', 'right'),
+(43, 'Atakaş Hatayspor', 11, 'forward', 'Turkish', 'right'),
+(44, 'Oscar Estupiñán', 11, 'forward', 'Colombia', 'right'),
+(45, 'Salahaddin El İdrissi', 11, 'forward', 'Moroccan', 'left'),
+(46, 'Cenk Gönen', 12, 'goalkeeper', 'Turkish', 'right'),
+(47, 'Mirza Bašić', 12, 'midfielder', 'Bosnian', 'right'),
+(48, 'Joyskim Dawa', 12, 'defender', 'Cameroon', 'right'),
+(49, 'Josef de Souza', 12, 'midfielder', 'Brazil', 'right'),
+(50, 'Tunay Torun', 13, 'forward', 'Turkish', 'right'),
+(51, 'Hasan Ali Kaldırım', 13, 'defender', 'Turkish', 'left'),
+(52, 'Bernard Mensah', 13, 'midfielder', 'Ghana', 'right'),
+(53, 'Okan Kocuk', 13, 'goalkeeper', 'Turkish', 'right'),
+(54, 'Ali Sowe', 14, 'forward', 'Gambian', 'right'),
+(55, 'Sefa Yılmaz', 14, 'midfielder', 'Turkish', 'right'),
+(56, 'Júnior Fernandes', 14, 'forward', 'Brazilian', 'right'),
+(57, 'Murat Uçar', 14, 'defender', 'Turkish', 'right'),
+(58, 'Emre Mor', 15, 'forward', 'Turkish', 'right'),
+(59, 'Josef de Souza', 15, 'midfielder', 'Brazil', 'right'),
+(60, 'Borja Valero', 15, 'midfielder', 'Spanish', 'right'),
+(61, 'Vedat Muriqi', 15, 'forward', 'Kosovo', 'right'),
+(62, 'Ali Çamdalı', 16, 'midfielder', 'Turkish', 'right'),
+(63, 'Amir Hadžiahmetović', 16, 'midfielder', 'Bosnian', 'right'),
+(64, 'Umut Bozok', 16, 'forward', 'Turkish', 'right'),
+(65, 'Ahmet Çalık', 16, 'defender', 'Turkish', 'right'),
+(66, 'Samet Akaydin', 17, 'defender', 'Turkish', 'right'),
+(67, 'Yasin Öztekin', 17, 'midfielder', 'Turkish', 'right'),
+(68, 'Okan Kocuk', 17, 'goalkeeper', 'Turkish', 'right'),
+(69, 'Gökhan Karadeniz', 17, 'forward', 'Turkish', 'right'),
+(70, 'Aykut Kocaman', 18, 'midfielder', 'Turkish', 'right'),
+(71, 'Mehmet Akyüz', 18, 'forward', 'Turkish', 'right'),
+(72, 'Muhammed Enes Durmuş', 18, 'forward', 'Turkish', 'right'),
+(73, 'Ahmet Yılmaz Çalık', 18, 'defender', 'Turkish', 'right'),
+(74, 'Serdar Gürler', 19, 'forward', 'Turkish', 'right'),
+(75, 'İsmail Yüksek', 19, 'midfielder', 'Turkish', 'right'),
+(76, 'Taha Yalçıner', 19, 'defender', 'Turkish', 'right'),
+(77, 'Murat Sağlam', 19, 'defender', 'Turkish', 'right');
 
 -- --------------------------------------------------------
 
@@ -419,13 +476,13 @@ ALTER TABLE `matches`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `teams`
